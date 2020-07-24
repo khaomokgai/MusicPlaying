@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QQ音乐播放器</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="js/jquery-1.10.1.js"></script>
+  <script src="./js/player.js"></script>
+  <script src="./js/progress.js"></script>
+  <script src="./js/lyric.js"></script>
+  <script src="./js/index.js"></script>
+  <link rel="stylesheet" href="./js/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+  <!-- 头部 -->
+  <div class="header">
+    <h1 class="logo"><a href="#"></a></h1>
+    <ul class="register">
+      <li><a href="#">登录</a></li>
+      <li><a href="#">设置</a></li>
+    </ul>
+  </div>
+  <!-- 中间 -->
+  <div class="content">
+    <div class="content_in">
+      <div class="content_left">
+        <div class="content_toolbar">
+          <span><i class="fa fa-heart-o" aria-hidden="true"></i> 收藏</span>
+          <span><i class="fa fa-plus-square-o" aria-hidden="true"></i>添加到</span>
+          <span><i class="fa fa-download" aria-hidden="true"></i>下载</span>
+          <span><i class="fa fa-trash-o" aria-hidden="true"></i>删除</span>
+          <span><i class="fa fa-eraser" aria-hidden="true"></i>清空列表</span>
+        </div>
+        <div class="content_list">
+          <ul class="musicList">
+            <li class="list_title">
+              <div class="list_check">
+                <div class="check "><i class="fa fa-check" aria-hidden="true"></i></div>
+              </div>
+              <div class="list_number"></div>
+              <div class="list_name">歌曲</div>
+              <div class="list_singer">歌手</div>
+              <div class="list_time">时长</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content_right">
+        <!-- 歌曲信息 -->
+        <div class="song_info">
+          <!-- 歌曲图片 -->
+          <a href="javascript:;" class="song_ingo_pic">
+            <img id="imges" src="./source/SomethingJustLikeThis.jpg" alt="">
+          </a>
+          <!-- 歌曲信息 -->
+          <div class="song_info_name"><span>歌曲名称:</span>
+            <a href="javascript:;">Easy</a>
+          </div>
+          <div class="song_info_singer"><span>歌手名:</span>
+            <a href="javascript:;">Troye Sivan</a>
+          </div>
+          <div class="song_info_ablum"><span>专辑名:</span>
+            <a href="javascript:;">Easys</a>
+          </div>
+
+        </div>
+        <!-- 歌词 -->
+        <div class="song_lyric_container">
+          <ul class="song_lyric">
+            <!--  <li class="song_lyric_now">第一条歌词</li>
+          <li>第二条歌词</li> -->
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- 底部 -->
+  <div class="footer">
+    <div class="footer_in">
+      <a href="javascript:;" class="music_pre"></a>
+      <a href="javascript:;" class="music_play"></a>
+      <a href="javascript:;" class="music_next"></a>
+      <!-- 音乐进度条 -->
+      <div class="music_progress_info">
+        <!-- 信息 -->
+        <div class="music_progress_top">
+          <a href="javascript:;" class="music_progress_name">Easy - Troye Sivan</a>
+          <span class="music_progress_time">00:00 / 04:17</span>
+        </div>
+        <!-- 进度条 -->
+        <div class="music_progress_bar">
+          <div class="music_progress_line">
+            <div class="music_progress_dot"></div>
+          </div>
+        </div>
+      </div>
+      <a href="javascript:;" class="music_modo"></a>
+      <a href="javascript:;" class="music_fav"></a>
+      <a href="javascript:;" class="music_down"></a>
+      <a href="javascript:;" class="music_comment"></a>
+      <a href="javascript:;" class="music_only"></a>
+      <div class="music_voice_info">
+        <a href="javascript:;" class="music_voice_icon"></a>
+        <!-- 进度条 -->
+        <div class="music_voices_bar">
+          <div class="music_voice_line">
+            <div class="music_voice_dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mask_bg"></div>
+  <div class="mask"></div>
+  <audio src=""></audio>
+</body>
+
+</html>
