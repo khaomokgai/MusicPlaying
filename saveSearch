@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <style>
+    .app-wrapper {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #app {
+      width: 100%;
+    }
+    .search-wrapper {
+      display: flex;
+    }
+    .tag-wrapper {
+      margin-top: 20px;
+    }
+    .el-tag {
+      margin-right: 10px;
+    }
+  </style>
+  <body>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <div class="app-wrapper">
+      <div id="app">
+        <div class="search-wrapper">
+          <el-input v-model="searchValue" placeholder="请输入内容"></el-input>
+          <el-button style="margin-left: 10px" type="primary" @click="handleClick">搜索</el-button>
+        </div>
+        <div class="tag-wrapper">
+          <el-tag v-for="(item,index) in hotList" :key="index">{{item}}</el-tag>
+        </div>
+      </div>
+    </div>
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data: {
+          count: 12312,
+          searchValue: '',
+          hotList: [],
+        },
+        methods: {
+          handleClick() {
+            if (this.hotList.length === 0) {
+              let time = new Date().getTime()
+              window.localStorage.setItem('time', JSON.stringify(time))
+            }
+            if (this.searchValue === '') return
+            let index = this.hotList.findIndex((e) => e === this.searchValue)
+            if (index !== -1) {
+              this.hotList.splice(index, 1)
+            }
+            this.hotList.unshift(this.searchValue)
+            window.localStorage.setItem('hotList', JSON.stringify(this.hotList))
+          },
+        },
+        created() {
+          let time = JSON.parse(window.localStorage.getItem('time'))
+          if (new Date().getTime() - time > 30000) {
+            delete window.localStorage['hotList']
+          }
+          this.hotList = JSON.parse(window.localStorage.getItem('hotList')) || []
+        },
+      })
+    </script>
+  </body>
+</html>
